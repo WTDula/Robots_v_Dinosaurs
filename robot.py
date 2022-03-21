@@ -4,8 +4,12 @@ class Robot:
     def __init__(self, name):
         self.name = name
         self.health = 100
-        self.weapon = None
+        self.weapon = Weapon("laser", 20)
 
 
     def attack(self, dino):
-        pass
+        if(dino.health > 0):
+            print(f"{self.name} attacks {dino.name} with {self.weapon.name} ({self.weapon.attack_power} damage!)")
+            dino.health -= self.weapon.attack_power
+        else:
+            print(f"{self.name} attacked a corpse! What a waste of a turn!")

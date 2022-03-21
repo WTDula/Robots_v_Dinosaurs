@@ -5,4 +5,8 @@ class Dinosaur:
         self.attack_power = attack_power
 
     def attack(self, robo):
-        pass
+        if(robo.health > 0):
+            print(f"{self.name} attacks {robo.name} ({self.attack_power} damage!)")
+            robo.health -= self.attack_power
+        else:
+            print(f"{self.name} attacked a lump of metal! Way to waste a turn!")
