@@ -19,7 +19,7 @@ class Battlefield:
     def battle(self):
         dino_total_health = self.calc_total_dino_health()
         robo_total_health = self.calc_total_robot_health()
-        while(dino_total_health > 0 or robo_total_health > 0):
+        while(dino_total_health > 0 and robo_total_health > 0):
             self.display_dinosaurs()
             user_input = input("Which dinosaur would you like to attack with? (1, 2, 3) ")
             if(user_input == "1"):
@@ -42,6 +42,9 @@ class Battlefield:
 
 
     def dino_turn(self, dino):
+        if(dino.health == 0):
+            print("That dinosaur is dead, no necromancy!")
+            return
         self.show_dino_opponent_options()
         user_input = input("Which enemy do you wish to attack? (1, 2, 3) ")
         if(user_input == "1"):
@@ -52,6 +55,9 @@ class Battlefield:
             dino.attack(self.fleet.robots[2])
 
     def robo_turn(self, robo):
+        if(robo.health == 0):
+            print("That robot has been terminated!")
+            return
         self.show_robo_opponent_options()
         user_input = input("Which enemy would you lke to attack? (1, 2, 3) ")
         if(user_input == "1"):
@@ -70,24 +76,31 @@ class Battlefield:
     def show_robo_opponent_options(self):
         self.display_dinosaurs()
 
-
+    # display winners based on total health (compare robot health since dinos went first)
     def display_winners(self):
-        pass
+        if(self.calc_total_robot_health() <= 0):
+            print("Dinosaurs win!")
+        else:
+            print("Robots win!")
 
+    # repetitive display put in own function
     def display_dinosaurs(self):
+        print("-----------------------------------------------------------------------------")
         print(f" 1. {self.herd.dinosaurs[0].name}'s HP = {self.herd.dinosaurs[0].health} ")
         print(f" 2. {self.herd.dinosaurs[1].name}'s HP = {self.herd.dinosaurs[1].health} ")
         print(f" 3. {self.herd.dinosaurs[2].name}'s HP = {self.herd.dinosaurs[2].health} ")
-        print("-----------------------------------------------------------------------------")
 
+    # repetitive display put in own function
     def display_robots(self):
+        print("-----------------------------------------------------------------------------")
         print(f" 1. {self.fleet.robots[0].name}'s HP = {self.fleet.robots[0].health} ")
         print(f" 2. {self.fleet.robots[1].name}'s HP = {self.fleet.robots[1].health} ")
         print(f" 3. {self.fleet.robots[2].name}'s HP = {self.fleet.robots[2].health} ")
-        print("-----------------------------------------------------------------------------")
 
+    # repetitive calculation
     def calc_total_dino_health(self):
         return self.herd.dinosaurs[0].health + self.herd.dinosaurs[1].health + self.herd.dinosaurs[2].health
 
+    # repetitive calculation
     def calc_total_robot_health(self):
         return self.fleet.robots[0].health + self.fleet.robots[1].health + self.fleet.robots[2].health
