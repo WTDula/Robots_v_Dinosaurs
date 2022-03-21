@@ -10,10 +10,11 @@ class Battlefield:
         pass
 
     def display_welcome(self):
-        pass
+        print("Welcome to Robots Versus Dinosaurs!  Who will be the winner?")
+        print("-------------------------------------------------------------------")
 
     def battle(self):
-        pass
+        
 
     def dino_turn(self, dino):
         pass
