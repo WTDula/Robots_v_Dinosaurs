@@ -7,6 +7,7 @@ class Battlefield:
         self.fleet = Fleet()
 
     def run_game(self):
+        self.display_welcome()
         self.herd.create_herd()
         self.fleet.create_fleet()
         self.battle()
@@ -21,17 +22,17 @@ class Battlefield:
         while(dino_total_health > 0 or robo_total_health > 0):
             self.display_dinosaurs()
             user_input = input("Which dinosaur would you like to attack with? (1, 2, 3) ")
-            if(user_input == 1):
+            if(user_input == "1"):
                 self.dino_turn(self.herd.dinosaurs[0])
-            elif(user_input == 2):
+            elif(user_input == "2"):
                 self.dino_turn(self.herd.dinosaurs[1])
             else:
                 self.dino_turn(self.herd.dinosaurs[2])
             self.display_robots()
             user_input = input("Which robot would you like to attack with? (1, 2, 3) ")
-            if(user_input == 1):
+            if(user_input == "1"):
                 self.robo_turn(self.fleet.robots[0])
-            elif(user_input == 2):
+            elif(user_input == "2"):
                 self.robo_turn(self.fleet.robots[1])
             else:
                 self.robo_turn(self.fleet.robots[2])
@@ -43,9 +44,9 @@ class Battlefield:
     def dino_turn(self, dino):
         self.show_dino_opponent_options()
         user_input = input("Which enemy do you wish to attack? (1, 2, 3) ")
-        if(user_input == 1):
+        if(user_input == "1"):
             dino.attack(self.fleet.robots[0])
-        elif(user_input == 2):
+        elif(user_input == "2"):
             dino.attack(self.fleet.robots[1])
         else:
             dino.attack(self.fleet.robots[2])
@@ -53,9 +54,9 @@ class Battlefield:
     def robo_turn(self, robo):
         self.show_robo_opponent_options()
         user_input = input("Which enemy would you lke to attack? (1, 2, 3) ")
-        if(user_input == 1):
+        if(user_input == "1"):
             robo.attack(self.herd.dinosaurs[0])
-        elif(user_input == 2):
+        elif(user_input == "2"):
             robo.attack(self.herd.dinosaurs[1])
         else:
             robo.attack(self.herd.dinosaurs[2])
