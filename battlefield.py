@@ -78,7 +78,9 @@ class Battlefield:
 
     # display winners based on total health (compare robot health since dinos went first)
     def display_winners(self):
-        if(self.calc_total_robot_health() <= 0):
+        self.display_dinosaurs()
+        self.display_robots()
+        if(self.calc_total_robot_health() == 0):
             print("Dinosaurs win!")
         else:
             print("Robots win!")
