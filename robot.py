@@ -9,9 +9,9 @@ class Robot:
 
     def attack(self, dino):
         if(dino.health > 0):
-            print(f"{self.name} attacks {dino.name} with {self.weapon.name} ({self.weapon.attack_power} damage!)")
+            print(f"{self.name} attacks {dino.name} with {self.weapon.name} ({self.weapon.attack_power} damage!)") # display message
             dino.health -= self.weapon.attack_power
-            if(dino.health < 0):
-                dino.health = 0
+            if(dino.health < 0): # if attack brings dino's health to below zero,
+                dino.health = 0  # make health zero
         else:
-            print(f"{self.name} attacked a corpse! What a waste of a turn!")
+            print(f"{self.name} attacked a corpse! What a waste of a turn!") # if attacking a dino w/ zero health, display message and move on

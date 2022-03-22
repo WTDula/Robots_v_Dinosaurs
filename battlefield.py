@@ -43,8 +43,8 @@ class Battlefield:
 
     def dino_turn(self, dino):
         if(dino.health == 0):
-            print("That dinosaur is dead, no necromancy!")
-            return
+            print("That dinosaur is dead, no necromancy!") # if selected dino's health = 0
+            return # skip turn
         self.show_dino_opponent_options()
         user_input = input("Which enemy do you wish to attack? (1, 2, 3) ")
         if(user_input == "1"):
@@ -56,8 +56,8 @@ class Battlefield:
 
     def robo_turn(self, robo):
         if(robo.health == 0):
-            print("That robot has been terminated!")
-            return
+            print("That robot has been terminated!") # if selected robo's health = 0
+            return # skip turn
         self.show_robo_opponent_options()
         user_input = input("Which enemy would you lke to attack? (1, 2, 3) ")
         if(user_input == "1"):

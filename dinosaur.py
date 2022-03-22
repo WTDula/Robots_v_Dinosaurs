@@ -6,9 +6,9 @@ class Dinosaur:
 
     def attack(self, robo):
         if(robo.health > 0):
-            print(f"{self.name} attacks {robo.name} ({self.attack_power} damage!)")
+            print(f"{self.name} attacks {robo.name} ({self.attack_power} damage!)") # display message
             robo.health -= self.attack_power
-            if(robo.health < 0):
-                robo.health = 0
+            if(robo.health < 0): # if attack brings robo's health below zero
+                robo.health = 0  # make robo's health zero
         else:
-            print(f"{self.name} attacked a lump of metal! Way to waste a turn!")
+            print(f"{self.name} attacked a lump of metal! Way to waste a turn!") # if attacking a robo with zero health, display message and move on
