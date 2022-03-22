@@ -28,6 +28,8 @@ class Battlefield:
                 self.dino_turn(self.herd.dinosaurs[1])
             else:
                 self.dino_turn(self.herd.dinosaurs[2])
+            if(self.calc_total_robot_health() == 0):    # if attack causes total robot health to hit zero,
+                break                                   # break out of loop to display winners
             self.display_robots()
             user_input = input("Which robot would you like to attack with? (1, 2, 3) ")
             if(user_input == "1"):
