@@ -5,13 +5,15 @@ class Robot:
         self.name = name
         self.health = 10
         self.weapon = Weapon("laser", 50)
+        self.power_level = 20
 
 
     def attack(self, dino):
         if(dino.health > 0):
-            self.choose_weapon()
+            self.choose_weapon() # when attack runs, have robot choose it's weapon for the turn
             print(f"{self.name} attacks {dino.name} with {self.weapon.name} ({self.weapon.attack_power} damage!)") # display message
             dino.health -= self.weapon.attack_power
+            self.power_level -= 10
             if(dino.health < 0): # if attack brings dino's health to below zero,
                 dino.health = 0  # make health zero
         else:
