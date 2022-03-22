@@ -18,9 +18,9 @@ class Robot:
             print(f"{self.name} attacked a corpse! What a waste of a turn!") # if attacking a dino w/ zero health, display message and move on
 
     def choose_weapon(self):
-        weapon_list = [Weapon("Laser", 50), Weapon("Bite my shiny metal ass!", 100), Weapon("Lever-action shotgun", 75)] # list of weapon objects to choose from
+        weapon_list = [Weapon("Laser", 50), Weapon("Kiss my shiny metal ass!", 100), Weapon("Lever-action shotgun", 75)] # list of weapon objects to choose from
         for gun in weapon_list:
-            print(f"\t{gun.name}, power = {gun.attack_power}") # display guns
+            print(f"\t{gun.name}") # display guns
         user_input = input("Choose your weapon: (1, 2, 3) ")
         if(user_input == "3"):
             self.weapon = weapon_list[2] # assign chosen weapon as self.weapon
